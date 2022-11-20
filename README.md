@@ -23,6 +23,7 @@ Se utiliza la escritura de archivos de texto para registrar el ingreso y egreso 
 
 -Pruebas Unitarias
 
+No llegue con el tiempo, perdon :c.
 
 -SQL, Conexion a base de Datos:
 
@@ -36,7 +37,7 @@ Se utilizan en bastantes partes del programa, por ejemplo en el formulario Menu_
 
 Se crearon hilos en a creacion de las partidas (Formulario Menu Principal linea 100) donde se crea cada hilo por partida, tambien los botones que muetran el estado de cada sala tiene un hilo para cambiarle el color dependiendo si la partida sigue corriendo, termino, fue cancelada o nunca se instancio.
 
--Delegados: se creo el delegado PartidaTerminada que retorna void y recibe un string. se utiliza para crear in evento.
+-Delegados: se creo el delegado PartidaTerminada que retorna void y recibe un string. se utiliza para crear un evento.
 
 -Eventos: se crea el evento PartidaTerminada el cual notifica al usuario cuando una partida fue cancelada.
 
