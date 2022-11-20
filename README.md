@@ -39,7 +39,7 @@ Se crearon hilos en a creacion de las partidas (Formulario Menu Principal linea 
 
 -Delegados: se creo el delegado PartidaTerminada que retorna void y recibe un string. se utiliza para crear un evento.
 
--Eventos: se crea el evento PartidaTerminada el cual notifica al usuario cuando una partida fue cancelada.
+-Eventos: se crea el evento PartidaTerminada en la clase Sala el cual notifica al usuario cuando una partida fue cancelada.
 
 
 
