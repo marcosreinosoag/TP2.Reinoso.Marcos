@@ -25,6 +25,7 @@ namespace Vista
         private void Menu_Principal_Load(object sender, EventArgs e)
         {
             CargarBotones();
+            lbx_partidas.Visible = false;
             TrucoArg.CargarListaDeJugadores();
             Task tarea = Task.Run(() => EstadoSalas(botones));
             Archivos.Escribir($"REGISTRO INGRESO: {DateTime.Now}", "Historial");
@@ -58,12 +59,12 @@ namespace Vista
                                 {
                                     botones[i].BackColor = Color.Yellow;
                                 }
-                                else if(salas[i] != null)
+                                else if (salas[i] != null)
                                 {
                                     botones[i].BackColor = Color.Blue;
                                 }
                             }
-                            else if(salas[i] != null)
+                            else if (salas[i] != null)
                             {
                                 botones[i].BackColor = Color.Green;
                             }
@@ -125,6 +126,7 @@ namespace Vista
         {
             gbx_salas.Visible = false;
             btn_crearSala.Visible = false;
+            lbx_partidas.Visible = false;
             dtg_jugadores.Visible = true;
             dtg_jugadores.DataSource = TrucoArg.listaDeJugadores;
 
@@ -218,12 +220,27 @@ namespace Vista
             gbx_salas.Visible = true;
             btn_crearSala.Visible = true;
             dtg_jugadores.Visible = false;
+            lbx_partidas.Visible = false;
         }
 
         private void btn_salir_Click(object sender, EventArgs e)
         {
             Archivos.Escribir($"REGISTRO DE SALIDA: {DateTime.Now}", "Historial");
             Application.Exit();
+        }
+
+        private void salasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.gbx_salas.Visible = false;
+            dtg_jugadores.Visible = false;
+            btn_crearSala.Visible = false;
+            lbx_partidas.Visible = true;
+            AccesoBaseDeDatos bdPartidas = new AccesoBaseDeDatos();
+            List<string> historialPartidas = bdPartidas.ObtenerPartidas();
+            foreach (string item in historialPartidas)
+            {
+                lbx_partidas.Items.Add(item);
+            }
         }
     }
 }

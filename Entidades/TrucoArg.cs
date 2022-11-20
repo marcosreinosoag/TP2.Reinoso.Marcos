@@ -36,14 +36,10 @@ namespace Entidades
                 {
                     listaDeUsuarios = auxListaDeUsuarios;
                 }
-                //else
-                //{
-                //    HardcodearCartas();
-                //}
             }
             catch
             {
-                new Exception();
+                HardcodearUsuarios();
             }
         }
         public static void EscribirUsuarios()
@@ -52,21 +48,22 @@ namespace Entidades
         }
         public static void LeerCartas()
         {
-            List<Carta>? auxMaxo = Serializacion<List<Carta>>.Leer("Mazo");
-            if (auxMaxo != null)
+            try
             {
-                mazoDeCartas = auxMaxo;
+                List<Carta>? auxMaxo = Serializacion<List<Carta>>.Leer("Mazo");
+                if (auxMaxo != null)
+                {
+                    mazoDeCartas = auxMaxo;
+                }
             }
-            //else
-            //{
-            //    HardcodearCartas();
-            //}
+            catch
+            {
+                HardcodearCartas();
+            }
         }
         public static void EscribirMazo()
         {
-
             Serializacion<List<Carta>?>.Escribir(mazoDeCartas, "Mazo");
-
         }
 
         public static int BuscarSalaDisponible()
@@ -80,7 +77,7 @@ namespace Entidades
             }
             return -1;
         }
-        
+
         private static int DevolverIndiceListaJugadoresPorId(int id)
         {
             foreach (Jugador jugador in listaDeJugadores)
@@ -102,7 +99,7 @@ namespace Entidades
             int indice = DevolverIndiceListaJugadoresPorId(id);
             return listaDeJugadores[indice].Apellido;
         }
-        public static string BuscarNombreJugadorPorId(int id)//query
+        public static string BuscarNombreJugadorPorId(int id)
         {
             int indice = DevolverIndiceListaJugadoresPorId(id);
             return listaDeJugadores[indice].Nombre;
@@ -117,8 +114,6 @@ namespace Entidades
             }
             catch
             {
-                //eventooooooo
-                retorno = "FALLO LA CARGA A LA BASE DE DATOS!!!. Los datos de los jugadores pueden estar desactualizados";
                 HardcodearJugadores();
             }
             return retorno;

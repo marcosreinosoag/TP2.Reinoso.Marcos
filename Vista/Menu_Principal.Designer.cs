@@ -37,7 +37,6 @@
             this.modificarJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estadisticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.jugadoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.salasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_sala2 = new System.Windows.Forms.Button();
             this.btn_sala3 = new System.Windows.Forms.Button();
@@ -47,6 +46,7 @@
             this.gbx_salas = new System.Windows.Forms.GroupBox();
             this.dtg_jugadores = new System.Windows.Forms.DataGridView();
             this.btn_salir = new System.Windows.Forms.Button();
+            this.lbx_partidas = new System.Windows.Forms.ListBox();
             this.mtp_menu.SuspendLayout();
             this.gbx_salas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_jugadores)).BeginInit();
@@ -131,24 +131,18 @@
             // estadisticasToolStripMenuItem
             // 
             this.estadisticasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.jugadoresToolStripMenuItem1,
             this.salasToolStripMenuItem});
             this.estadisticasToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Highlight;
             this.estadisticasToolStripMenuItem.Name = "estadisticasToolStripMenuItem";
             this.estadisticasToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.estadisticasToolStripMenuItem.Text = "Estadisticas";
             // 
-            // jugadoresToolStripMenuItem1
-            // 
-            this.jugadoresToolStripMenuItem1.Name = "jugadoresToolStripMenuItem1";
-            this.jugadoresToolStripMenuItem1.Size = new System.Drawing.Size(127, 22);
-            this.jugadoresToolStripMenuItem1.Text = "Jugadores";
-            // 
             // salasToolStripMenuItem
             // 
             this.salasToolStripMenuItem.Name = "salasToolStripMenuItem";
-            this.salasToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.salasToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.salasToolStripMenuItem.Text = "Salas";
+            this.salasToolStripMenuItem.Click += new System.EventHandler(this.salasToolStripMenuItem_Click);
             // 
             // btn_sala2
             // 
@@ -250,6 +244,15 @@
             this.btn_salir.UseVisualStyleBackColor = false;
             this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
+            // lbx_partidas
+            // 
+            this.lbx_partidas.FormattingEnabled = true;
+            this.lbx_partidas.ItemHeight = 15;
+            this.lbx_partidas.Location = new System.Drawing.Point(72, 123);
+            this.lbx_partidas.Name = "lbx_partidas";
+            this.lbx_partidas.Size = new System.Drawing.Size(671, 244);
+            this.lbx_partidas.TabIndex = 12;
+            // 
             // Menu_Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -258,6 +261,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(800, 461);
             this.ControlBox = false;
+            this.Controls.Add(this.lbx_partidas);
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.dtg_jugadores);
             this.Controls.Add(this.gbx_salas);
@@ -289,7 +293,6 @@
         private ToolStripMenuItem modificarJugadorToolStripMenuItem;
         private ToolStripMenuItem eliminarJugadorToolStripMenuItem;
         private ToolStripMenuItem estadisticasToolStripMenuItem;
-        private ToolStripMenuItem jugadoresToolStripMenuItem1;
         private ToolStripMenuItem salasToolStripMenuItem;
         private Button btn_sala2;
         private Button btn_sala3;
@@ -299,5 +302,6 @@
         private GroupBox gbx_salas;
         private DataGridView dtg_jugadores;
         private Button btn_salir;
+        private ListBox lbx_partidas;
     }
 }

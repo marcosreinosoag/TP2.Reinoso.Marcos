@@ -187,5 +187,32 @@ namespace Entidades
                 }
             }
         }
+        public List<string> ObtenerPartidas()
+        {
+            List<string> jugadores = new List<string>();
+            if (connection is not null)
+            {
+                connection.Open();
+                command.CommandText = "SELECT NumeroDeSala, Descripcion, Nombre, Apellido FROM Partidas JOIN Jugadores ON Jugadores.Id = Partidas.IdGanador";
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    int  numeroSala = reader.GetInt32(0);
+                    string descripcion = reader.GetString(1);
+                    string nombre = reader.GetString(2);
+                    string apellido = reader.GetString(3);
+
+                    string auxPartida = $"{numeroSala}  {descripcion}\t Ganador: {nombre} {apellido}";
+                    jugadores.Add(auxPartida);
+                }
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+                return jugadores;
+            }
+            return jugadores;
+        }
+
     }
 }
