@@ -1,4 +1,4 @@
-                                                      Trabajo Practico N° 2
+                                                        Trabajo Practico N° 2
                                                      
 Este programa consiste en la creacion del juego de mesa Truco, donde se pueden crear y simular 6 partidas en simultaneo.
 A continuacion dare un breve instructivo del programa.
@@ -51,6 +51,19 @@ Debera completar el iD de jugador de los jugadores para comenzar la partida.
 
 Para iniciar la partida oprima el boton "Aceptar", caso contrario "Cancelar".
 
+-INFORMACION DE LA SALA
+
+Si selecciona alguna sala que este inicializada, cancelada O Terminada podra visualizar la siguiente vendana
+
+![image](https://user-images.githubusercontent.com/68253845/204347475-9dec8200-ee82-4727-9f61-00178336a77f.png)
+
+Donde podra ver la infomacion de la partida.
+
+Si desea cancelar la partida puede presionar el boton "Cancelar".
+
+El boton finalizar partida reiniciara la sala para pueda comenzar una nueva pero se habilitara cuando la partida se haya cancelado o terminado.
+
+
 - JUGADORES
 
 El boton Jugadores del Menu superior abrira la siguiente ventana:
@@ -69,6 +82,7 @@ En caso de modificarlo tendra que ingresar el Id del jugador que desea modificar
 
 ![image](https://user-images.githubusercontent.com/68253845/204300590-10a6e7ed-d754-4c5b-b40d-550b201238cb.png)
 
+-ESTADISTICAS
 
 
 Temas Aplicados:
