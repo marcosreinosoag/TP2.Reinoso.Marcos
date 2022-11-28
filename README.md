@@ -5,7 +5,35 @@ A continuacion dare un breve instructivo del programa.
 
 Loguin
 
+En el inicio del programa se encuentra el loguin.
+
 ![image](https://user-images.githubusercontent.com/68253845/204281252-96e943ec-9490-40da-a9a9-3e6f5b99fb79.png)
+
+Ingresando el usuario y contraseña y seleccionando el boton ingresar usted podra ingresar al programa, caso contrario puede seleccionar el boton Admin para que autocomplete los datos y clickear el boton ingresar.
+
+Munu Pricipal
+
+Una vez que se logueo en el programa visiaulizara la siguiente pestaña:
+
+![image](https://user-images.githubusercontent.com/68253845/204283580-c8bfed9b-0790-416e-8280-4963ae63dba8.png)
+ 
+ A simple vista se pueden ver las salas disponibles, las mismas cuentan con tres estados.
+ 
+ Disponible(color gris)
+ 
+ ![image](https://user-images.githubusercontent.com/68253845/204284849-d9896ccd-e725-4f3d-a612-9be254b19972.png)
+ 
+ Partida inicializada (Color verde)
+ 
+ ![image](https://user-images.githubusercontent.com/68253845/204285206-0e6fdd63-db95-45cb-ae27-f3bd193fff14.png)
+ 
+ Cancelada(Color amarillo)
+ ![image](https://user-images.githubusercontent.com/68253845/204284578-0d83b060-9e39-40c0-a194-ac21de5e4f67.png)
+
+Partida finalizada(color azul)
+
+![image](https://user-images.githubusercontent.com/68253845/204285378-f21969eb-f846-46da-9061-5f57960293c8.png)
+
 
 
 Temas Aplicados:
