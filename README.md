@@ -1,6 +1,12 @@
-                                                     Trabajo Practico N° 2
+                                                            Trabajo Practico N° 2
                                                      
-Este programa consiste en la creacion del juego de mesa Truco se pueden crear y simular 6 partidas en simultaneo.
+Este programa consiste en la creacion del juego de mesa Truco, donde se pueden crear y simular 6 partidas en simultaneo.
+A continuacion dare un breve instructivo del programa.
+
+Loguin
+
+![image](https://user-images.githubusercontent.com/68253845/204281252-96e943ec-9490-40da-a9a9-3e6f5b99fb79.png)
+
 
 Temas Aplicados:
 
