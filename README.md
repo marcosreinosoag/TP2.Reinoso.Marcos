@@ -1,4 +1,4 @@
-                                                            Trabajo Practico N° 2
+                                              Trabajo Practico N° 2
                                                      
 Este programa consiste en la creacion del juego de mesa Truco, donde se pueden crear y simular 6 partidas en simultaneo.
 A continuacion dare un breve instructivo del programa.
@@ -61,12 +61,13 @@ Donde podra ver los jugadores cargados en el programa. En el menu desplazable po
 
 ![image](https://user-images.githubusercontent.com/68253845/204300385-bc0dd851-555b-4fda-85c9-29e681316003.png)
 
-Si algun dato ingresado es erroneo 
+Si algun dato ingresado es erroneo al seleccionar el boton Aceptar Visualizara un icono de error alado del dato erroneo, posando el mouse arriba del icono le marcara el error.
+
+![image](https://user-images.githubusercontent.com/68253845/204301846-80624ebb-1afb-4dfa-b37b-6bc5ac619e4a.png)
 
 En caso de modificarlo tendra que ingresar el Id del jugador que desea modificar en la siguiente ventana:
 
 ![image](https://user-images.githubusercontent.com/68253845/204300590-10a6e7ed-d754-4c5b-b40d-550b201238cb.png)
-
 
 
 
