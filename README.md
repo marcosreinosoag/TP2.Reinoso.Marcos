@@ -53,7 +53,7 @@ Para iniciar la partida oprima el boton "Aceptar", caso contrario "Cancelar".
 
 -INFORMACION DE LA SALA
 
-Si selecciona alguna sala que este inicializada, cancelada O Terminada podra visualizar la siguiente vendana
+Si selecciona alguna sala que este inicializada, cancelada o Terminada podra visualizar la siguiente ventana
 
 ![image](https://user-images.githubusercontent.com/68253845/204347475-9dec8200-ee82-4727-9f61-00178336a77f.png)
 
@@ -62,7 +62,6 @@ Donde podra ver la infomacion de la partida.
 Si desea cancelar la partida puede presionar el boton "Cancelar".
 
 El boton finalizar partida reiniciara la sala para pueda comenzar una nueva pero se habilitara cuando la partida se haya cancelado o terminado.
-
 
 - JUGADORES
 
@@ -113,11 +112,11 @@ Se realizar pruebas unitarias de las clases AccesoBaseDeDatos,Sala,Serializacion
 
 -SQL, Conexion a base de Datos:
 
-Se realizo la clase AccesoBaseDeDatos donde se realizan el ABM de los jugadores, alta y las consultas de las partidas jugadas.
+Se realizo la clase AccesoBaseDeDatos donde se realizan el alta y modificacion de los jugadores, ademas para hacer altas y las consultas de las partidas jugadas.
 
 -Expresiones Lambda:
 
-Se utilizan en bastantes partes del programa, por ejemplo en el formulario Menu_Principal linea 30 se utiliza una expresion lambda para indicarle al hilo que metodo debe correr, tambien en la clase Sala linea 88 para cargar en el historial de la partida las cartas quie tiene el jugador.
+Se utilizan en bastantes partes del programa, por ejemplo en el formulario Menu_Principal linea 30 se utiliza una expresion lambda para indicarle al hilo que metodo debe correr, tambien en la clase Sala linea 88 para cargar en el historial de la partida las cartas que tiene el jugador.
 
 -Hilos
 
