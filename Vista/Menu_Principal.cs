@@ -26,9 +26,18 @@ namespace Vista
         {
             CargarBotones();
             lbx_partidas.Visible = false;
-            TrucoArg.CargarListaDeJugadores();
+    
+            if(TrucoArg.CargarListaDeJugadores())
+            {
+                MessageBox.Show("Hubo un error en la conexion de la base de datos. Intente nuevamente mas tarde","¡Error Critico!", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                Application.Exit();
+            }
             Task tarea = Task.Run(() => EstadoSalas(botones));
             Archivos.Escribir($"REGISTRO INGRESO: {DateTime.Now}", "Historial");
+        }
+        public void ErrorBd(string a)
+        {
+            Application.Exit();
         }
 
         private void CargarBotones()
@@ -41,7 +50,6 @@ namespace Vista
             botones[4] = btn_sala5;
             botones[5] = btn_sala6;
         }
-
         private void EstadoSalas(Button[]? botones)
         {
             if (botones != null)
@@ -158,23 +166,7 @@ namespace Vista
                 }
             }
         }
-        private void eliminarJugadorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AccesoBaseDeDatos bDJugador = new AccesoBaseDeDatos();
-            BuscarId frm_buscarId = new BuscarId();
-            DialogResult resultadoModificacion = frm_buscarId.ShowDialog();
-            if (resultadoModificacion == DialogResult.OK)
-            {
-                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                int indice = TrucoArg.DevolverIndiceJugador(frm_buscarId.IdEncontrado);
-                DialogResult resultado = MessageBox.Show($"Esta seguro que desea eliminar al jugador {TrucoArg.listaDeJugadores[indice].Nombre} {TrucoArg.listaDeJugadores[indice].Apellido}?", "a", buttons);
-                if (resultado == DialogResult.Yes)
-                {
-                    bDJugador.EliminarJugador(TrucoArg.listaDeJugadores[indice]);
-                    TrucoArg.CargarListaDeJugadores();
-                }
-            }
-        }
+
 
         private void btn_sala1_Click(object sender, EventArgs e)
         {
@@ -231,6 +223,7 @@ namespace Vista
 
         private void salasToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lbx_partidas.Items.Clear();
             this.gbx_salas.Visible = false;
             dtg_jugadores.Visible = false;
             btn_crearSala.Visible = false;
@@ -242,6 +235,7 @@ namespace Vista
                 lbx_partidas.Items.Add(item);
             }
         }
+
     }
 }
 

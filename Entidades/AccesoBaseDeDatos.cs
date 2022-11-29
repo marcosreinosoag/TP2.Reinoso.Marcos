@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
+
     public class AccesoBaseDeDatos
     {
         static string connectionString;
@@ -25,9 +26,9 @@ namespace Entidades
         }
         public List<Jugador> ObtenerJugadores()
         {
-            List<Jugador> jugadores = new List<Jugador>();
-            if (connection is not null)
+            try
             {
+                List<Jugador> jugadores = new List<Jugador>();
                 connection.Open();
                 command.CommandText = "SELECT * FROM Jugadores ";
                 SqlDataReader reader = command.ExecuteReader();
@@ -43,13 +44,20 @@ namespace Entidades
                     Jugador auxJugador = new Jugador(id, nombre, apellido, fechaDeNacimiento, puntajePartida, partidasGanadas);
                     jugadores.Add(auxJugador);
                 }
+                return jugadores;
+            }
+            catch (Exception)
+            {
+                throw new DBConcurrencyException();
+            }
+            finally
+            {
+                command.Parameters.Clear();
                 if (connection.State == ConnectionState.Open)
                 {
                     connection.Close();
                 }
-                return jugadores;
             }
-            return jugadores;
         }
         public void AgregarJugador(Jugador jugador)
         {
@@ -68,7 +76,7 @@ namespace Entidades
                 }
                 catch (Exception)
                 {
-                    throw;
+                    throw new DBConcurrencyException();
                 }
                 finally
                 {
@@ -97,7 +105,7 @@ namespace Entidades
             }
             catch (Exception)
             {
-                throw;
+                throw new DBConcurrencyException();
             }
             finally
             {
@@ -108,28 +116,7 @@ namespace Entidades
                 }
             }
         }
-        public void EliminarJugador(Jugador jugador)
-        {
-            try
-            {
-                connection.Open();
-                command.CommandText = "Delete Jugadores WHERE Id = @id";
-                command.Parameters.AddWithValue("@id", jugador.Id);
-                command.ExecuteNonQuery();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                command.Parameters.Clear();
-                if (connection.State == ConnectionState.Open)
-                {
-                    connection.Close();
-                }
-            }
-        }
+
         public void AgregarSala(Sala sala)
         {
             if (connection is not null)
@@ -163,7 +150,7 @@ namespace Entidades
                 try
                 {
                     Jugador? jugadorGanador = sala.JugadorGanador;
-                    int idJGanador = jugadorGanador.Id;
+                    int? idJGanador = jugadorGanador.Id;
                     connection.Open();
                     command.CommandText = "INSERT INTO Partidas VALUES (@NumeroDeSala,@IdJugadorUno,@IdJugadorDos,@IdGanador,@Descripcion)";
                     command.Parameters.AddWithValue("@NumeroDeSala", sala.NumeroDeSala);
@@ -197,12 +184,12 @@ namespace Entidades
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    int  numeroSala = reader.GetInt32(0);
+                    int numeroSala = reader.GetInt32(0);
                     string descripcion = reader.GetString(1);
                     string nombre = reader.GetString(2);
                     string apellido = reader.GetString(3);
 
-                    string auxPartida = $"{numeroSala}  {descripcion}\t Ganador: {nombre} {apellido}";
+                    string auxPartida = $"N° Sala: {numeroSala}  {descripcion}\t Ganador: {nombre} {apellido}";
                     jugadores.Add(auxPartida);
                 }
                 if (connection.State == ConnectionState.Open)

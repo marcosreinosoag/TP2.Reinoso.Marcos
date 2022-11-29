@@ -27,6 +27,8 @@ namespace Vista
         private void InformacionSala_Load(object sender, EventArgs e)
         {
             Task.Run(() => ActualizarListBox());
+            lbl_numeroSala.Text = $"Sala {indiceSala+1}";
+            
         }
 
         private void ActualizarListBox()
@@ -77,6 +79,8 @@ namespace Vista
 
         private void btn_finalizarPartida_Click(object sender, EventArgs e)
         {
+            TrucoArg.ModificarJugadorPorId(TrucoArg.salas[indiceSala].IdJugadorUno);
+            TrucoArg.ModificarJugadorPorId(TrucoArg.salas[indiceSala].IdJugadorDos);
             TrucoArg.salas[indiceSala] = null;
             this.Close();
         }

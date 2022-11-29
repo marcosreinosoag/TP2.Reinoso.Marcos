@@ -156,7 +156,7 @@ namespace Entidades
             }
             return puntajeTotal;
         }
-        public string MostrarInformacion()////////////////////////////////////
+        public string MostrarInformacion()/////////////////
         {
             throw new NotImplementedException();
         }

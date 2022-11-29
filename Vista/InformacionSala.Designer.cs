@@ -29,6 +29,7 @@
             this.btn_salir = new System.Windows.Forms.Button();
             this.rchx_historialPartida = new System.Windows.Forms.RichTextBox();
             this.btn_finalizarPartida = new System.Windows.Forms.Button();
+            this.lbl_numeroSala = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_cancelar
@@ -53,9 +54,9 @@
             // 
             // rchx_historialPartida
             // 
-            this.rchx_historialPartida.Location = new System.Drawing.Point(326, 43);
+            this.rchx_historialPartida.Location = new System.Drawing.Point(76, 53);
             this.rchx_historialPartida.Name = "rchx_historialPartida";
-            this.rchx_historialPartida.Size = new System.Drawing.Size(390, 306);
+            this.rchx_historialPartida.Size = new System.Drawing.Size(675, 306);
             this.rchx_historialPartida.TabIndex = 3;
             this.rchx_historialPartida.Text = "";
             // 
@@ -70,6 +71,17 @@
             this.btn_finalizarPartida.UseVisualStyleBackColor = true;
             this.btn_finalizarPartida.Click += new System.EventHandler(this.btn_finalizarPartida_Click);
             // 
+            // lbl_numeroSala
+            // 
+            this.lbl_numeroSala.AutoSize = true;
+            this.lbl_numeroSala.Font = new System.Drawing.Font("Sitka Small", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_numeroSala.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lbl_numeroSala.Location = new System.Drawing.Point(21, 9);
+            this.lbl_numeroSala.Name = "lbl_numeroSala";
+            this.lbl_numeroSala.Size = new System.Drawing.Size(58, 23);
+            this.lbl_numeroSala.TabIndex = 5;
+            this.lbl_numeroSala.Text = "label1";
+            // 
             // InformacionSala
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -78,19 +90,26 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.lbl_numeroSala);
             this.Controls.Add(this.btn_finalizarPartida);
             this.Controls.Add(this.rchx_historialPartida);
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.btn_cancelar);
+            this.MaximizeBox = false;
+            this.MdiChildrenMinimizedAnchorBottom = false;
+            this.MinimizeBox = false;
             this.Name = "InformacionSala";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Informacion Sala";
             this.Load += new System.EventHandler(this.InformacionSala_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
         private Button btn_cancelar;
         private Button btn_salir;
         private RichTextBox rchx_historialPartida;
         private Button btn_finalizarPartida;
+        private Label lbl_numeroSala;
     }
 }

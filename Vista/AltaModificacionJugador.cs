@@ -56,9 +56,9 @@ namespace Vista
                         accesoJugador.AgregarJugador(auxJugador);
                         this.DialogResult = DialogResult.OK;
                     }
-                    catch
+                    catch(Exception)
                     {
-                        // evento mostrar error en form principal
+                        throw;
                     }
                     finally
                     {
@@ -75,7 +75,7 @@ namespace Vista
                     }
                     catch
                     {
-                        // evento mostrar error en form principal
+                        throw;
                     }
                     finally
                     {

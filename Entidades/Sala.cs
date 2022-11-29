@@ -41,9 +41,6 @@ namespace Entidades
             partidaFinalizada = false;
         }
 
-
-
-
         public int IdJugadorUno { get => jugadorUno.Id; }
         public int IdJugadorDos { get => jugadorDos.Id; }
         public Jugador? JugadorGanador { get => jugadorGanador; }
@@ -53,14 +50,12 @@ namespace Entidades
         public List<Carta> Mazo { get => mazo; set => mazo = value; }
         public List<string> Historial { get => historial; }
         public int Mano { get => mano; }
-        //public int IdJugadorGanador { get => idJugadorGanador; }
         public bool VentanaActiva { get => ventanaActiva; set => ventanaActiva = value; }
-        public CancellationToken Token { get => token; /*set => token = value;*/ }
+        public CancellationToken Token { get => token; }
         public bool PartidaFinalizada { get => partidaFinalizada; set => partidaFinalizada = value; }
         public bool PartidaCancelada { get => partidaCancelada; set => partidaCancelada = value; }
         public int NumeroDeSala { get => numeroDeSala; set => numeroDeSala = value; }
         public string? Descripcion { get => descripcion; set => descripcion = value; }
-        //public int IdJugadorPerdedor { get => idJugadorPerdedor; set => idJugadorPerdedor = value; }
 
         public void CrearSala(CancellationToken token)
         {
@@ -135,7 +130,7 @@ namespace Entidades
                         }
                     }
                 }
-            } while (jugadorUno.PuntajePartida <= 15 && jugadorDos.PuntajePartida <= 15);
+            } while (jugadorUno.PuntajePartida < 15 && jugadorDos.PuntajePartida < 15);
             partidaFinalizada = true;
             //Thread.Sleep(5000);
             CargarInformacionAlHistorial($" TOTAL PUNTAJES: Jugador 1: {jugadorUno.PuntajePartida} Jugador 2: {jugadorDos.PuntajePartida}");
@@ -189,7 +184,6 @@ namespace Entidades
                     jugadorDos.PuntajePartida += 1;
                     retorno = false;
                 }
-
             }
             return retorno;
         }
@@ -312,7 +306,7 @@ namespace Entidades
             return 0;
         }
 
-        public string SumarPuntajeJugador(List<int> jugadorGanadorDeLaMano)
+        private string SumarPuntajeJugador(List<int> jugadorGanadorDeLaMano)
         {
             int jugadorUnoManosGanadas = 0;
             int jugadorDosManosGanadas = 0;
@@ -358,7 +352,7 @@ namespace Entidades
             }
             return "Se define en la tercer ronda";
         }
-        public string DevolverMensajeGanador(Jugador jugador, string mensaje)
+        private string DevolverMensajeGanador(Jugador jugador, string mensaje)
         {
             jugador.PuntajePartida = jugador.PuntajePartida + 2;
             this.finalizarRonda = true;
@@ -382,10 +376,10 @@ namespace Entidades
                 jugadorDos.PartidasGanadas = 1;
                 finalizarRonda = true;
                 jugadorGanador = jugadorDos;
-                return "Jugador 2 gana la Partida";
+                return "Jugador 2 gana la partida";
             }
         }
-        public void CargarInformacionAlHistorial(string datosPartida)
+        private void CargarInformacionAlHistorial(string datosPartida)
         {
             if (datosPartida != null)
             {

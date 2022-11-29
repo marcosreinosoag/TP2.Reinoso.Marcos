@@ -57,7 +57,37 @@ namespace Vista
 
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+            btn_errorJugadorUno.Visible = false;
+            btn_errorJugadorDos.Visible = false;
+            int errorJugadorEnPartida = 0;
+            if (cmb_jugadorUno.Text != "" && cmb_jugadorDos.Text != "")
+            {
+                if (cmb_jugadorDos.SelectedIndex != cmb_jugadorUno.SelectedIndex)
+                {
+                    if (TrucoArg.VerificarJugadorEnPartida(Validar.ConvertirStringAEntero(cmb_jugadorDos.Text)))
+                    {
+                        errorJugadorEnPartida++;
+                        btn_errorJugadorDos.Visible = true;
+                    }
+                    if (TrucoArg.VerificarJugadorEnPartida(Validar.ConvertirStringAEntero(cmb_jugadorUno.Text)))
+                    {
+                        btn_errorJugadorUno.Visible = true;
+                        errorJugadorEnPartida++;
+                    }
+                    if (errorJugadorEnPartida == 0)
+                    {
+                        this.DialogResult = DialogResult.OK;
+                    }
+                }
+                else
+                {
+                    lbl_error.Text = "No puede elegir el mismo jugador";
+                }
+            }
+            else
+            {
+                lbl_error.Text = "Complete los campos de Id";
+            }
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
@@ -73,6 +103,14 @@ namespace Vista
             txb_apellidoJ2.Text = TrucoArg.BuscarApellidoJugadorPorId(id);
             txb_partidasJ2.Text = TrucoArg.BuscarPartidasJugadorPorId(id).ToString();
             idJugadorDos = id;
+        }
+
+        private void btn_errorJugador_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip toolTip1 = new ToolTip();
+            Button btn_generico = (Button)sender;
+            toolTip1.SetToolTip(btn_generico, "¡El jugador ya esta jugado una partida!");
+
         }
     }
 }

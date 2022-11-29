@@ -9,11 +9,6 @@ namespace Vista
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-       
-        }
-
         private void btn_salir_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -25,6 +20,7 @@ namespace Vista
             string claveIngresada;
             usuarioIngresado = txb_usuario.Text;
             claveIngresada = txb_clave.Text;
+
             if (TrucoArg.VerificarUsuarioYClave(usuarioIngresado, claveIngresada))
             {
                 Menu_Principal frm_menuPrincipal = new Menu_Principal();
@@ -42,5 +38,6 @@ namespace Vista
             txb_usuario.Text = "MarcosReinoso2022";
             txb_clave.Text = "1234";
         }
+
     }
 }

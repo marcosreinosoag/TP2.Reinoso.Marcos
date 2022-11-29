@@ -27,6 +27,21 @@ namespace Entidades
             LeerUsuarios();
             LeerCartas();
         }
+
+        public static bool VerificarJugadorEnPartida(int id)
+        {
+            foreach (var item in salas)
+            {
+                if (item != null)
+                {
+                    if (id == item.IdJugadorUno || id == item.IdJugadorDos)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
         public static void LeerUsuarios()
         {
             try
@@ -77,7 +92,6 @@ namespace Entidades
             }
             return -1;
         }
-
         private static int DevolverIndiceListaJugadoresPorId(int id)
         {
             foreach (Jugador jugador in listaDeJugadores)
@@ -104,9 +118,8 @@ namespace Entidades
             int indice = DevolverIndiceListaJugadoresPorId(id);
             return listaDeJugadores[indice].Nombre;
         }
-        public static string CargarListaDeJugadores()
+        public static bool CargarListaDeJugadores()
         {
-            string retorno = "Se realiza la carga correctamente";
             try
             {
                 AccesoBaseDeDatos bDJugadores = new AccesoBaseDeDatos();
@@ -114,9 +127,20 @@ namespace Entidades
             }
             catch
             {
-                HardcodearJugadores();
+                return true;
             }
-            return retorno;
+            return false;
+        }
+        public static void ModificarJugadorPorId(int id)
+        {
+            foreach (Jugador item in listaDeJugadores)
+            {
+                if (item.Id == id)
+                {
+                    AccesoBaseDeDatos bDJugadores = new AccesoBaseDeDatos();
+                    bDJugadores.ModificarJugador(item);
+                }
+            }
         }
 
         public static void HardcodearUsuarios()
@@ -144,14 +168,7 @@ namespace Entidades
             listaDeUsuarios.Add(usuarioDos);
             listaDeUsuarios.Add(usuarioDiez);
         }
-        public static void HardcodearJugadores()
-        {
-            Jugador jugadorUno = new Jugador(0, "Marcos", "Reinoso", new DateTime(1997, 02, 25), 0, 5);
-            Jugador jugadorDos = new Jugador(1, "Martin", "Moreno", new DateTime(1999, 10, 05), 0, 1);
 
-            listaDeJugadores.Add(jugadorUno);
-            listaDeJugadores.Add(jugadorDos);
-        }
         public static bool BuscarIdJugador(int id)
         {
             foreach (Jugador jugador in listaDeJugadores)

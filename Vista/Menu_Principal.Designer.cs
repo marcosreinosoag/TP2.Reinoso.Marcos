@@ -35,7 +35,6 @@
             this.jugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estadisticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_sala2 = new System.Windows.Forms.Button();
@@ -99,8 +98,7 @@
             // 
             this.jugadoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.crearJugadorToolStripMenuItem,
-            this.modificarJugadorToolStripMenuItem,
-            this.eliminarJugadorToolStripMenuItem});
+            this.modificarJugadorToolStripMenuItem});
             this.jugadoresToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.jugadoresToolStripMenuItem.Name = "jugadoresToolStripMenuItem";
             this.jugadoresToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
@@ -120,13 +118,6 @@
             this.modificarJugadorToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.modificarJugadorToolStripMenuItem.Text = "Modificar Jugador";
             this.modificarJugadorToolStripMenuItem.Click += new System.EventHandler(this.modificarJugadorToolStripMenuItem_Click);
-            // 
-            // eliminarJugadorToolStripMenuItem
-            // 
-            this.eliminarJugadorToolStripMenuItem.Name = "eliminarJugadorToolStripMenuItem";
-            this.eliminarJugadorToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.eliminarJugadorToolStripMenuItem.Text = "Eliminar Jugador";
-            this.eliminarJugadorToolStripMenuItem.Click += new System.EventHandler(this.eliminarJugadorToolStripMenuItem_Click);
             // 
             // estadisticasToolStripMenuItem
             // 
@@ -224,10 +215,11 @@
             // dtg_jugadores
             // 
             this.dtg_jugadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_jugadores.Location = new System.Drawing.Point(394, 104);
+            this.dtg_jugadores.Location = new System.Drawing.Point(0, 104);
             this.dtg_jugadores.Name = "dtg_jugadores";
+            this.dtg_jugadores.ReadOnly = true;
             this.dtg_jugadores.RowTemplate.Height = 25;
-            this.dtg_jugadores.Size = new System.Drawing.Size(372, 281);
+            this.dtg_jugadores.Size = new System.Drawing.Size(766, 281);
             this.dtg_jugadores.TabIndex = 10;
             this.dtg_jugadores.Visible = false;
             // 
@@ -291,7 +283,6 @@
         private ToolStripMenuItem jugadoresToolStripMenuItem;
         private ToolStripMenuItem crearJugadorToolStripMenuItem;
         private ToolStripMenuItem modificarJugadorToolStripMenuItem;
-        private ToolStripMenuItem eliminarJugadorToolStripMenuItem;
         private ToolStripMenuItem estadisticasToolStripMenuItem;
         private ToolStripMenuItem salasToolStripMenuItem;
         private Button btn_sala2;
