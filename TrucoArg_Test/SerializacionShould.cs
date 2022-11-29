@@ -11,7 +11,7 @@ namespace TrucoArg_Test
     public class SerializacionShould
     {
         [TestMethod]
-        public void EscribirArchivoJson()
+        public void EscribirArchivoJsonCorrectamente()
         {
             string nombreArchivo = "Serializar Prueba";
             string ruta = AppDomain.CurrentDomain.BaseDirectory;
@@ -27,7 +27,7 @@ namespace TrucoArg_Test
             return File.Exists(ruta + @"/" + nombreArchivo + ".json");
         }
         [TestMethod]
-        public void LeerArchivoJson()
+        public void LeerArchivoJsonCorrectamente()
         {
             string nombreArchivo = "Serializar Prueba";
 

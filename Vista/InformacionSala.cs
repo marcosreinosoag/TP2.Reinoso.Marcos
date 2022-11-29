@@ -28,7 +28,6 @@ namespace Vista
         {
             Task.Run(() => ActualizarListBox());
             lbl_numeroSala.Text = $"Sala {indiceSala+1}";
-            
         }
 
         private void ActualizarListBox()
