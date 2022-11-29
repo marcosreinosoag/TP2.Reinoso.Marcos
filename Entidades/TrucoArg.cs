@@ -27,7 +27,6 @@ namespace Entidades
             LeerUsuarios();
             LeerCartas();
         }
-
         public static bool VerificarJugadorEnPartida(int id)
         {
             foreach (var item in salas)
@@ -142,7 +141,6 @@ namespace Entidades
                 }
             }
         }
-
         public static void HardcodearUsuarios()
         {
             Usuario usuarioUno = new Usuario("MarcosReinoso2022", "1234", "Marcos", "Reinoso");
@@ -284,7 +282,6 @@ namespace Entidades
             mazoDeCartas.Add(cuatroDeOro);
             mazoDeCartas.Add(cuatroDeBasto);
         }
-
         public static bool VerificarUsuarioYClave(string usuarioIngresado, string claveIngresada)
         {
             foreach (Usuario item in listaDeUsuarios)

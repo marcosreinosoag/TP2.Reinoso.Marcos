@@ -27,9 +27,8 @@ namespace Vista
         private void InformacionSala_Load(object sender, EventArgs e)
         {
             Task.Run(() => ActualizarListBox());
-            lbl_numeroSala.Text = $"Sala {indiceSala+1}";
+            lbl_numeroSala.Text = $"Sala {indiceSala + 1}";
         }
-
         private void ActualizarListBox()
         {
             Thread.Sleep(500);
@@ -75,7 +74,6 @@ namespace Vista
             TrucoArg.tokenTareas[indiceSala].Cancel();
             btn_cancelar.Enabled = false;
         }
-
         private void btn_finalizarPartida_Click(object sender, EventArgs e)
         {
             TrucoArg.ModificarJugadorPorId(TrucoArg.salas[indiceSala].IdJugadorUno);

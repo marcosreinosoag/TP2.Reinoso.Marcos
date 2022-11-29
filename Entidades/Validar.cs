@@ -129,7 +129,6 @@ namespace Entidades
         /// <param name="minimo"></param>
         /// <param name="maximo"></param>
         /// <returns>Retorna la cadena si se verifica que el string fue ingresado correctamente, caso contrario null </returns>
-
         public static string? ValidarStringSoloNumerosConComa(string cadenaParaAnalizar, int minimo)
         {
             string? retorno = null;

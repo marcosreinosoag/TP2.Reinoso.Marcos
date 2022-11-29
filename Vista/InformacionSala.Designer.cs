@@ -54,9 +54,9 @@
             // 
             // rchx_historialPartida
             // 
-            this.rchx_historialPartida.Location = new System.Drawing.Point(76, 53);
+            this.rchx_historialPartida.Location = new System.Drawing.Point(41, 72);
             this.rchx_historialPartida.Name = "rchx_historialPartida";
-            this.rchx_historialPartida.Size = new System.Drawing.Size(675, 306);
+            this.rchx_historialPartida.Size = new System.Drawing.Size(730, 287);
             this.rchx_historialPartida.TabIndex = 3;
             this.rchx_historialPartida.Text = "";
             // 

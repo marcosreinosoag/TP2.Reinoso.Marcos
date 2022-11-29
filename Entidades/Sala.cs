@@ -81,39 +81,31 @@ namespace Entidades
                 List<int> jugadorGanadorDeLaMano = new List<int>();
                 CargarInformacionAlHistorial("Jugador 1");
                 jugadorUno.CartasJugador.ForEach((c) => CargarInformacionAlHistorial(c.MostrarInformacion()));
-                //Thread.Sleep(5000);
                 CargarInformacionAlHistorial("Jugador 2");
                 jugadorDos.CartasJugador.ForEach((c) => CargarInformacionAlHistorial(c.MostrarInformacion()));
-                // Thread.Sleep(5000);
                 CantarEnvido(jugadorUno, jugadorDos);
                 if (CantarJuego(jugadorUno, jugadorDos))
                 {
                     for (int i = 0; i < 3; i++)
                     {
                         ElegirMano();
-                        //Thread.Sleep(5000);
                         CargarInformacionAlHistorial($"\tMANO: {i + 1}");
                         Carta auxCartaElegidaJ1 = jugadorUno.CartaJugada();
-                        //Thread.Sleep(5000);
                         CargarInformacionAlHistorial($"J1: Juega {auxCartaElegidaJ1.MostrarInformacion()}");
                         Carta auxCartaElegidaJ2 = jugadorDos.CartaJugada();
-                        // Thread.Sleep(5000);
                         CargarInformacionAlHistorial($"J2: Juega {auxCartaElegidaJ2.MostrarInformacion()}");
                         int ganador = CalcularCartaGanadora(auxCartaElegidaJ1, auxCartaElegidaJ2);
                         switch (ganador)
                         {
                             case 0:
-                                // Thread.Sleep(5000);
                                 CargarInformacionAlHistorial("Pardas");
                                 jugadorGanadorDeLaMano.Add(0);
                                 break;
                             case 1:
-                                // Thread.Sleep(5000);
                                 CargarInformacionAlHistorial("Gana carta J1");
                                 jugadorGanadorDeLaMano.Add(1);
                                 break;
                             case 2:
-                                // Thread.Sleep(5000);
                                 CargarInformacionAlHistorial("Gana carta J2");
                                 jugadorGanadorDeLaMano.Add(2);
                                 break;
@@ -132,9 +124,7 @@ namespace Entidades
                 }
             } while (jugadorUno.PuntajePartida < 15 && jugadorDos.PuntajePartida < 15);
             partidaFinalizada = true;
-            //Thread.Sleep(5000);
             CargarInformacionAlHistorial($" TOTAL PUNTAJES: Jugador 1: {jugadorUno.PuntajePartida} Jugador 2: {jugadorDos.PuntajePartida}");
-            //Thread.Sleep(5000);
             descripcion = historial.Last();
             CargarInformacionAlHistorial(DevolverGanadorDePartida(jugadorUno, jugadorDos));
             Thread.Sleep(500);
@@ -148,18 +138,14 @@ namespace Entidades
             {
                 if (jugadorUno.Truco)
                 {
-                    // Thread.Sleep(5000);
                     CargarInformacionAlHistorial("J1 Dice: Truco");
                     if (jugadorDos.Truco)
                     {
-                        // Thread.Sleep(5000);
                         CargarInformacionAlHistorial("J2 Dice: Quiero");
                     }
                     else
                     {
-                        // Thread.Sleep(5000);
                         CargarInformacionAlHistorial("J2 Dice: NO Quiero");
-                        // Thread.Sleep(5000);
                         CargarInformacionAlHistorial("Termina la Mano Gana J1");
                         jugadorUno.PuntajePartida += 1;
                         retorno = false;
@@ -168,18 +154,14 @@ namespace Entidades
             }
             else if (jugadorDos.Truco)
             {
-                // Thread.Sleep(5000);
                 CargarInformacionAlHistorial("J2 Dice: Truco");
                 if (jugadorUno.Truco)
                 {
-                    // Thread.Sleep(5000);
                     CargarInformacionAlHistorial("J1 Dice: Quiero");
                 }
                 else
                 {
-                    //Thread.Sleep(5000);
                     CargarInformacionAlHistorial("J1 Dice: NO Quiero");
-                    // Thread.Sleep(5000);
                     CargarInformacionAlHistorial("Termina la Mano Gana J2");
                     jugadorDos.PuntajePartida += 1;
                     retorno = false;
@@ -193,40 +175,32 @@ namespace Entidades
             int ganador;
             if (jugadorUno.Envido)
             {
-                //Thread.Sleep(5000);
                 CargarInformacionAlHistorial("J1 Dice: Envido");
                 if (jugadorDos.Envido)
                 {
-                    // Thread.Sleep(5000);
                     CargarInformacionAlHistorial("J2 Dice: Quiero");
-                    //  Thread.Sleep(5000);
                     CargarInformacionAlHistorial($"J1: {jugadorUno.Tantos} Tantos - J2: {jugadorDos.Tantos} Tantos");
                     ganador = CalcularGanadorEnvido(jugadorUno.Tantos, jugadorDos.Tantos);
                     if (ganador == 2)
                     {
-                        //  Thread.Sleep(5000);
                         CargarInformacionAlHistorial("Gana J2 El envido");
                         jugadorDos.PuntajePartida += 2;
                     }
                     else
                     {
-                        // Thread.Sleep(5000);
                         CargarInformacionAlHistorial("Gana J1 El envido");
                         jugadorUno.PuntajePartida += 2;
                     }
                 }
                 else
                 {
-                    //   Thread.Sleep(5000);
                     CargarInformacionAlHistorial("J2 Dice: NO Quiero");
                     jugadorUno.PuntajePartida += 1;
                 }
             }
             else if (jugadorDos.Envido)
             {
-                // Thread.Sleep(5000);
                 CargarInformacionAlHistorial("J2 Dice: Envido");
-                //Thread.Sleep(5000);
                 CargarInformacionAlHistorial("J1 Dice: NO Quiero");
                 jugadorDos.PuntajePartida += 1;
             }
@@ -305,7 +279,6 @@ namespace Entidades
             }
             return 0;
         }
-
         private string SumarPuntajeJugador(List<int> jugadorGanadorDeLaMano)
         {
             int jugadorUnoManosGanadas = 0;
@@ -386,8 +359,6 @@ namespace Entidades
                 historial.Add(datosPartida);
             }
         }
-
-
         private int CalcularGanadorEnvido(int tantosJ1, int tantosJ2)
         {
             if (tantosJ1 > tantosJ2)

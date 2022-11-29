@@ -32,7 +32,7 @@ namespace Entidades
             tantos = 0;
             cartasJugador = new List<Carta>();
         }
-        public Jugador(int id, string nombre, string apellido, DateTime fechaDeNacimiento, int puntajePartida, int partidasGanadas) : this (nombre, apellido, fechaDeNacimiento, puntajePartida, partidasGanadas)
+        public Jugador(int id, string nombre, string apellido, DateTime fechaDeNacimiento, int puntajePartida, int partidasGanadas) : this(nombre, apellido, fechaDeNacimiento, puntajePartida, partidasGanadas)
         {
             this.id = id;
         }
@@ -156,9 +156,9 @@ namespace Entidades
             }
             return puntajeTotal;
         }
-        public string MostrarInformacion()/////////////////
+        public string MostrarInformacion()
         {
-            throw new NotImplementedException();
+            return $"Nombre:{nombre} Apellido{apellido}";
         }
     }
 }

@@ -12,7 +12,6 @@ namespace Entidades
         string clave;
         string nombre;
         string apellido;
-
         public Usuario(string cuenta, string clave, string nombre, string apellido)
         {
             this.cuenta = cuenta;

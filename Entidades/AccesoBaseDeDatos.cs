@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-
     public class AccesoBaseDeDatos
     {
         static string connectionString;
@@ -116,7 +115,6 @@ namespace Entidades
                 }
             }
         }
-
         public void AgregarSala(Sala sala)
         {
             if (connection is not null)
@@ -200,6 +198,5 @@ namespace Entidades
             }
             return jugadores;
         }
-
     }
 }
