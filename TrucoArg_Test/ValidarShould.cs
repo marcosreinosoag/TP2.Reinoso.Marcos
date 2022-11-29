@@ -44,6 +44,5 @@ namespace TrucoArg_Test
             retorno = Validar.ConvertirStringAEntero("aaaaaa");
             Assert.AreEqual(retorno,0);
         }
-
     }
 }

@@ -129,7 +129,7 @@ namespace Entidades
                 }
                 catch (Exception)
                 {
-                    throw;
+                    throw new DBConcurrencyException();
                 }
                 finally
                 {
@@ -160,7 +160,7 @@ namespace Entidades
                 }
                 catch (Exception)
                 {
-                    throw;
+                    throw new DBConcurrencyException();
                 }
                 finally
                 {
@@ -174,9 +174,9 @@ namespace Entidades
         }
         public List<string> ObtenerPartidas()
         {
-            List<string> jugadores = new List<string>();
-            if (connection is not null)
+            try
             {
+                List<string> jugadores = new List<string>();
                 connection.Open();
                 command.CommandText = "SELECT NumeroDeSala, Descripcion, Nombre, Apellido FROM Partidas JOIN Jugadores ON Jugadores.Id = Partidas.IdGanador";
                 SqlDataReader reader = command.ExecuteReader();
@@ -190,13 +190,20 @@ namespace Entidades
                     string auxPartida = $"N° Sala: {numeroSala}  {descripcion}\t Ganador: {nombre} {apellido}";
                     jugadores.Add(auxPartida);
                 }
+                return jugadores;
+            }
+            catch
+            {
+                throw new DBConcurrencyException();
+            }
+            finally
+            {
+                command.Parameters.Clear();
                 if (connection.State == ConnectionState.Open)
                 {
                     connection.Close();
                 }
-                return jugadores;
             }
-            return jugadores;
         }
     }
 }

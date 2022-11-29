@@ -56,10 +56,7 @@ namespace Entidades
                 HardcodearUsuarios();
             }
         }
-        public static void EscribirUsuarios()
-        {
-            Serializacion<List<Usuario>?>.Escribir(listaDeUsuarios, "Usuarios");
-        }
+
         public static void LeerCartas()
         {
             try
@@ -74,10 +71,6 @@ namespace Entidades
             {
                 HardcodearCartas();
             }
-        }
-        public static void EscribirMazo()
-        {
-            Serializacion<List<Carta>?>.Escribir(mazoDeCartas, "Mazo");
         }
 
         public static int BuscarSalaDisponible()
