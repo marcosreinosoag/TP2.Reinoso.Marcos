@@ -1,4 +1,4 @@
-                                                        Trabajo Practico N° 2
+                                                      Trabajo Practico N° 2
                                                      
 Este programa consiste en la creacion del juego de mesa Truco, donde se pueden crear y simular 6 partidas en simultaneo.
 A continuacion dare un breve instructivo del programa.
@@ -84,6 +84,9 @@ En caso de modificarlo tendra que ingresar el Id del jugador que desea modificar
 
 -ESTADISTICAS
 
+Al oprimir el boton "Estadisticas" en el menu desplazable superior, encontrara los resultados de las partidas.
+
+![image](https://user-images.githubusercontent.com/68253845/204528471-cb7dec01-340c-4ece-a691-e46d91a203d4.png)
 
 Temas Aplicados:
 
@@ -106,7 +109,7 @@ Se utiliza la escritura de archivos de texto para registrar el ingreso y egreso 
 
 -Pruebas Unitarias
 
-No llegue con el tiempo, perdon :c.
+Se realizar pruebas unitarias de las clases AccesoBaseDeDatos,Sala,Serializacion,TrucoArg,Validar.
 
 -SQL, Conexion a base de Datos:
 
